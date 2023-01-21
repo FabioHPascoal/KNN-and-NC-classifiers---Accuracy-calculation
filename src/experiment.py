@@ -2,6 +2,7 @@ from typing import Union, Dict, List
 from src.datasets.dataset_interface import DatasetInterface
 from src.classifiers.classifier_interface import ClassifierInterface
 from src.metrics import accuracy
+import time
 
 class Experiment:
     def __init__(self, train_dataset: DatasetInterface, test_dataset: DatasetInterface):
@@ -11,11 +12,19 @@ class Experiment:
 
     def run(self, classifier: ClassifierInterface) -> Dict[str, float]:
         """ executa o experimento """
+      
+        start = time.time()
         classifier.train(self.train_dataset)
+        end = time.time()
         pred_classes = classifier.predict(self.test_dataset)
 
+        inference_time = time.time() - end
+        training_time = end - start
+
         metrics = {
-            "accuracy": accuracy(self.true_classes, pred_classes)
+            "accuracy": accuracy(self.true_classes, pred_classes),
+            "training time": training_time / self.train_dataset.size,
+            "inference time": inference_time / self.test_dataset.size
         }
 
         return metrics

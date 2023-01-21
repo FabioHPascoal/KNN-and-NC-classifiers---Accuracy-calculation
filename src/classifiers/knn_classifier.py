@@ -51,9 +51,9 @@ class KnnClassifier(ClassifierInterface):
             smallest_k_dist = []
 
         # Cria uma lista contendo as classes identificadas nos objetos de teste
-        predicted_classes = []
         classes = []
         class_count = []
+        predicted_classes = []
         for i in range(Ntests):
             for idx in smallest_k_dist_idx[i]:
                 if not self.train_samples[idx][1] in classes:
