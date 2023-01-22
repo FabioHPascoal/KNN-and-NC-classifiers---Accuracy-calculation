@@ -23,7 +23,7 @@ class ImageDataset(DatasetInterface):
     def get(self, idx: int) -> Tuple[Any, str]:
         # ler a i-esima imagem do disco usando a biblioteca cv2 e retornar
         # a imagem vetorizada e sua respectiva classe
-        newPath = self.path[:-4] + "/" + str(idx).zfill(3) + ".png"
+        newPath = self.path[:self.path.rfind("/") + 1] + self.imagePath[idx]
         image = cv2.imread(newPath, 0)
         
         flattened_image = []
