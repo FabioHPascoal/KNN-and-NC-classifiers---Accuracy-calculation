@@ -1,0 +1,6 @@
+dataset: image
+path: data/datasets/img_medium/
+classifier: nc
+training time per sample: 0.001s
+inference time per sample: 0.001s
+accuracy: 0.80

@@ -1,0 +1,6 @@
+dataset: news
+path: data/datasets/news-medium-small/
+classifier: knn
+training time per sample: 0.028s
+inference time per sample: 0.573s
+accuracy: 0.27

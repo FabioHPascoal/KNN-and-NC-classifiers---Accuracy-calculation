@@ -1,0 +1,6 @@
+dataset: news
+path: data/datasets/news-medium-small/
+classifier: nc
+training time per sample: 0.028s
+inference time per sample: 0.033s
+accuracy: 0.61
